@@ -6,6 +6,7 @@ public class Garaje {
     private Coche coche[]; // cantidad de coches que puede almacenar *Array de coches*
     private Moto moto[]; // cantidad de coches que puede almacenar *Array de coches*
     private Camion camiones[]; // cantidad de coches que puede almacenar *Array de camion*
+    private Vehiculo vehiculos[];
 
     /*
      * añadimos el atributo de array de motos
@@ -26,6 +27,7 @@ public class Garaje {
         this.coche = new Coche[capacidad];
         this.moto = new Moto[capacidad];
         this.camiones = new Camion[capacidad];
+        this.vehiculos = new Vehiculo[capacidad];
     }
 
     // METODOS GETTER Y SETTER
@@ -120,6 +122,25 @@ public class Garaje {
         }
     }
 
+    public void agregarVehiculo(int posicion, Vehiculo vehiculo) {
+        if (posicion >= 0 && posicion < vehiculos.length) {
+            vehiculos[posicion] = vehiculo;
+        } else {
+            System.out.println("Posición fuera de rango.");
+        }
+    }
+
+    public void mostrarVehiculo() {
+        System.out.println("Vehiculos que hay en el garaje:");
+        for (int i = 0; i < vehiculos.length; i++) {
+            if (vehiculos[i] != null) {
+                System.out.println(vehiculos[i].toString());
+            } else {
+                System.out.println("Posición " + i + ": Vacía.");
+            }
+        }
+    }
+
     // METODO TO STRING PARA MOSTRAR INFORMACION DEL GARAJE
     public String toString(int posicion) {
         StringBuilder sb = new StringBuilder();
@@ -129,4 +150,3 @@ public class Garaje {
     }
 
 }
-//
